@@ -306,3 +306,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
   .event-small img,.live-main img,.live-side img,.live-frame img{width:100%;height:auto;max-height:none;object-fit:contain}
   .process-moodboard .portrait-sticker{right:4vw}
 }
+
+/* Preserve the full scene in the two landscape documentary images. */
+.process-grid figure img,.event-small img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain}
+
+/* Narrow screens need room for landscape social captures in the collage. */
+@media(max-width:600px){
+  .impact-mosaic .mosaic-square.mosaic-detail{grid-row:span 1}
+  .impact-mosaic .mosaic-detail img{object-fit:contain;object-position:center;background:#fff}
+}
