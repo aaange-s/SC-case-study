@@ -278,6 +278,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 @media(prefers-reduced-motion:reduce){.tag-cloud img{animation:none}}
 @media(max-width:600px){.impact-source{grid-template-columns:1fr;gap:10px}.tag-cloud{min-height:350px;border-radius:65px}.tag-cloud img{width:83%}.tag-cloud img:nth-child(1){left:4%;top:7%}.tag-cloud img:nth-child(2){right:4%;top:40%}.tag-cloud img:nth-child(3){left:7%;bottom:7%}}
 
+/* All seven verified topic captures need their own visible space. */
+.tag-cloud{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:22px;padding:32px;min-height:0;border-radius:42px}
+.tag-cloud img{position:static;width:100%;height:auto;object-fit:contain;transform:none!important;animation:none}
+@media(max-width:600px){.tag-cloud{grid-template-columns:1fr;gap:14px;padding:18px;border-radius:28px}.tag-cloud img{width:100%}}
+
 /* Nana's own Weibo posts, shown as readable original-page screenshots. */
 .nana-post-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;border-top:1px solid var(--forest);padding-top:16px;margin:100px 0 24px;color:var(--forest)}
 .nana-post-heading span{font-size:12px;font-weight:700;letter-spacing:.12em;white-space:nowrap}
