@@ -326,3 +326,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
   .impact-mosaic .mosaic-detail img{object-fit:contain;object-position:center;background:#fff}
 }
 
+/* Varied paper sizes keep native topic captures legible in a loose collage. */
+.tag-cloud{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px 16px;align-items:center;padding:38px 44px}
+.tag-cloud img{box-sizing:border-box;background:#fff;padding:6px;box-shadow:0 10px 24px #493b2a20}
+.tag-cloud img:nth-child(1){grid-column:1 / span 7;width:93%;justify-self:start;transform:rotate(-2deg)!important}
+.tag-cloud img:nth-child(2){grid-column:8 / span 5;width:98%;justify-self:end;transform:rotate(2deg)!important}
+.tag-cloud img:nth-child(3){grid-column:2 / span 5;width:96%;justify-self:start;transform:rotate(1deg)!important}
+.tag-cloud img:nth-child(4){grid-column:7 / span 6;width:88%;justify-self:end;transform:rotate(-2deg)!important}
+.tag-cloud img:nth-child(5){grid-column:1 / span 6;width:96%;justify-self:start;transform:rotate(-1deg)!important}
+.tag-cloud img:nth-child(6){grid-column:7 / span 6;width:97%;justify-self:end;transform:rotate(2deg)!important}
+.tag-cloud img:nth-child(7){grid-column:3 / span 8;width:83%;justify-self:center;transform:rotate(-1deg)!important}
+@media(max-width:600px){
+  .tag-cloud{grid-template-columns:1fr;gap:14px;padding:18px}
+  .tag-cloud img:nth-child(n){grid-column:1;width:91%;justify-self:start}
+  .tag-cloud img:nth-child(2n){justify-self:end}
+}
+
