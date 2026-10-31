@@ -288,7 +288,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .nana-post-heading span{font-size:12px;font-weight:700;letter-spacing:.12em;white-space:nowrap}
 .nana-post-heading p{font-size:clamp(22px,2.3vw,38px);letter-spacing:-.05em;line-height:1.2;margin:0;text-align:right}
 .nana-posts{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;scrollbar-color:#8a6c53 #eee7db;padding:0 0 22px}
-.nana-post{flex:0 0 min(748px,88vw);scroll-snap-align:start;min-width:0;padding:14px;background:#f5f0e7}
+.nana-post{flex:0 0 min(748px,88vw);scroll-snap-align:start;min-width:0;padding:14px;background:#f5f0e7;display:flex;flex-direction:column;justify-content:center}
 .nana-post>a{display:block;background:#fff}
 .nana-post img{width:100%;height:auto;object-fit:contain}
 .nana-post figcaption{display:flex;justify-content:space-between;gap:16px;align-items:center;color:var(--forest);font-size:11px;font-weight:700;letter-spacing:.08em;line-height:1.4;margin:13px 2px 0}
