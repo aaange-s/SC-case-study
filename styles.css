@@ -295,6 +295,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .nana-post figcaption a{text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 @media(max-width:600px){.nana-post-heading{display:block;margin-top:70px}.nana-post-heading p{text-align:left;margin-top:14px}.nana-post{flex-basis:92vw;padding:8px}.nana-post figcaption{font-size:10px}}
 
+/* One chronological chapter connects Nana's posts with the fan response. */
+.story-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 30px}
+.story-steps span{border-top:1px solid var(--forest);padding:12px 4px 8px;color:var(--forest);font-size:clamp(13px,1.3vw,19px);font-weight:700;line-height:1.5}
+@media(max-width:600px){.echo-section h2{font-size:clamp(42px,12vw,58px)}.story-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.story-steps span{font-size:13px}}
+
 /* Bilingual scroll cue for every horizontal media row. */
 .swipe-hint{flex-direction:column;align-items:flex-end;gap:4px}
 .swipe-hint .swipe-hint-cn{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.08em;line-height:1.3}
@@ -320,3 +325,4 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
   .impact-mosaic .mosaic-square.mosaic-detail{grid-row:span 1}
   .impact-mosaic .mosaic-detail img{object-fit:contain;object-position:center;background:#fff}
 }
+
