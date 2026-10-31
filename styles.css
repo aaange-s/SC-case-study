@@ -295,3 +295,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .swipe-hint .swipe-hint-cn{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;letter-spacing:.08em;line-height:1.3}
 .swipe-hint .swipe-hint-en{display:flex;align-items:center;gap:14px;font-size:12px;line-height:1.2}
 .swipe-hint .swipe-hint-en b{font-size:19px;font-weight:400;line-height:.7}
+
+/* Keep mobile chapters and media inside the viewport without cropping source frames. */
+@media(max-width:600px){
+  .chapter-head,.chapter-head>*{min-width:0}
+  .conversation-section h2{font-size:clamp(46px,12.5vw,62px)}
+  .invitation-grid{grid-template-columns:1fr;gap:12px}
+  .invitation-grid figure{padding:8px}
+  .invitation-grid img{width:100%;height:auto;max-height:none;object-fit:contain}
+  .event-small img,.live-main img,.live-side img,.live-frame img{width:100%;height:auto;max-height:none;object-fit:contain}
+  .process-moodboard .portrait-sticker{right:4vw}
+}
