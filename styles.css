@@ -332,3 +332,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
   .tag-cloud img:nth-child(2n){justify-self:end}
 }
 
+/* The invitation opening is a subheading, larger than its supporting copy. */
+.invitation-section .chapter-opening p:first-child{font-size:clamp(28px,3vw,46px);line-height:1.18;letter-spacing:-.05em;text-transform:none;font-weight:600}
+
