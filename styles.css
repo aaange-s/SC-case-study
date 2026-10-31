@@ -344,3 +344,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .doodle-invitation{display:block;width:max-content;margin:-48px 7% 20px auto;transform:rotate(9deg)}
 .doodle-impact{display:block;width:max-content;margin:0 8% 18px auto;transform:rotate(-6deg)}
 @media(max-width:600px){.hero-bottom .page-doodle{display:block;width:max-content;margin:14px 0 0 auto}.doodle-invitation{margin:0 6% 18px auto}.doodle-impact{margin:0 6% 18px auto}.nana-post-heading p{font-size:clamp(27px,7vw,36px)}}
+
+/* Functional labels lead each chapter; supporting copy stays quieter. */
+.chapter-opening p:first-child{font-size:clamp(28px,3vw,46px);line-height:1.18;letter-spacing:-.05em;text-transform:none;font-weight:600}
+.chapter-opening p:last-child{font-size:clamp(18px,1.9vw,28px);line-height:1.4}
+#idea .process-intro{display:block}
+#idea .process-intro p{margin-left:33%}
+.teaser-plan{width:100vw;max-width:none;margin-left:calc(50% - 50vw);padding:0;background:transparent}
+.teaser-plan img{width:100%;height:auto;display:block}
+@media(max-width:900px){#idea .process-intro p{margin-left:0}}
+@media(max-width:600px){.chapter-opening p:last-child{font-size:18px}.teaser-plan{padding:0}}
+
+/* Crop the footer watermark out of the hero poster. */
+.hero-images .hero-side{aspect-ratio:1020/1320;overflow:hidden}
+.hero-images .hero-side img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center top}
