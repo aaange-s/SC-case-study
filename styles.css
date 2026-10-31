@@ -182,8 +182,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .impact-mosaic-head{display:flex;justify-content:space-between;align-items:end;gap:25px;border-top:1px solid var(--forest);padding-top:18px;margin-bottom:25px;color:var(--forest)}
 .impact-mosaic-head p{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(29px,3vw,55px);line-height:1;margin:0;letter-spacing:-.06em}
 /* A loose wall of original social captures and clearly marked image fragments. */
-.impact-mosaic{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:94px;grid-auto-flow:dense;gap:12px;padding:28px 10px 60px;align-items:stretch;isolation:isolate}
-.impact-mosaic figure{margin:0;background:#fff;padding:7px;box-shadow:0 12px 28px rgba(49,36,23,.13);overflow:hidden;position:relative;transform:rotate(var(--tilt,0deg)) translateY(var(--lift,0px));z-index:var(--layer,1)}
+.impact-mosaic{columns:3;column-gap:22px;padding:28px 14px 60px;isolation:isolate}
+.impact-mosaic figure{display:inline-block;vertical-align:top;box-sizing:border-box;width:var(--paper-width,94%);height:auto;margin:0 0 22px;background:#fff;padding:6px;box-shadow:0 12px 28px rgba(49,36,23,.13);break-inside:avoid;position:relative;transform:rotate(var(--tilt,0deg)) translate(var(--shift,0px),var(--lift,0px));z-index:var(--layer,1)}
 .impact-mosaic figure:nth-child(6n+1){--tilt:-2.5deg;--lift:9px}
 .impact-mosaic figure:nth-child(6n+2){--tilt:2deg;--lift:-12px}
 .impact-mosaic figure:nth-child(6n+3){--tilt:-1deg;--lift:5px}
@@ -191,22 +191,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .impact-mosaic figure:nth-child(6n+5){--tilt:-3deg;--lift:12px}
 .impact-mosaic figure:nth-child(6n){--tilt:1deg;--lift:-4px}
 .impact-mosaic figure:nth-child(7n){--layer:2}
-.impact-mosaic .mosaic-wide{grid-column:span 2;grid-row:span 2}
-.impact-mosaic .mosaic-tall{grid-column:span 1;grid-row:span 3}
-.impact-mosaic .mosaic-square{grid-column:span 1;grid-row:span 2}
-.impact-mosaic .mosaic-big{grid-column:span 2;grid-row:span 3}
-.impact-mosaic img{display:block;width:100%;height:100%;object-fit:cover;object-position:left top}
-.impact-mosaic .mosaic-full img{object-fit:contain;background:#fff}
-.impact-mosaic .mosaic-detail img{object-fit:cover;object-position:left center}
-.impact-mosaic .mosaic-detail.mosaic-bottom img{object-position:left bottom}
-.impact-mosaic .mosaic-text img{object-position:right center}
+.impact-mosaic figure:nth-child(3n+1){--paper-width:98%;--shift:-4px}
+.impact-mosaic figure:nth-child(3n+2){--paper-width:88%;--shift:9px}
+.impact-mosaic figure:nth-child(3n){--paper-width:93%;--shift:-2px}
+.impact-mosaic img,.impact-mosaic .mosaic-full img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+@media(max-width:1400px){.impact-mosaic{columns:2}}
 .impact-press{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:120px}
-.impact-press figure{background:var(--paper);padding:20px;display:flex;flex-direction:column;align-items:center}
-.impact-press img{width:auto;max-width:100%;height:min(68vh,670px);object-fit:contain;object-position:top}
+.impact-press figure{background:var(--paper);padding:20px;display:flex;flex-direction:column;align-items:center;align-self:start}
+.impact-press img{display:block;width:100%;height:auto;object-fit:contain;object-position:top}
 .impact-press figcaption{width:100%;margin-top:18px}
 .impact-disclaimer{font-size:12px;color:#786c61;line-height:1.5;margin-top:25px}
-@media(max-width:900px){.impact-hero{grid-template-columns:1fr;gap:12px;margin:55px 0 95px}.impact-number{min-height:430px}.impact-number strong{font-size:clamp(110px,25vw,220px)}.impact-mosaic{grid-template-columns:repeat(4,minmax(0,1fr))}.impact-press{grid-template-columns:1fr;margin-top:80px}}
-@media(max-width:600px){.impact-number{min-height:390px}.impact-search img{height:auto;max-height:640px}.impact-mosaic img{height:100%}.impact-mosaic-head{display:block}.impact-mosaic-head p{margin-top:20px}.impact-press figure{padding:10px}.impact-press img{height:auto;max-height:620px}}
+@media(max-width:900px){.impact-hero{grid-template-columns:1fr;gap:12px;margin:55px 0 95px}.impact-number{min-height:430px}.impact-number strong{font-size:clamp(110px,25vw,220px)}.impact-mosaic{columns:2}.impact-press{margin-top:80px}}
+@media(max-width:600px){.impact-number{min-height:390px}.impact-search img{height:auto;max-height:640px}.impact-mosaic-head{display:block}.impact-mosaic-head p{margin-top:20px}.impact-press{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain}.impact-press figure{flex:0 0 84vw;padding:10px;scroll-snap-align:start}}
 
 /* All 25 original artwork cutouts form one dense, freely scattered sticker sheet. */
 .process-grid{grid-template-columns:1.15fr .85fr;gap:12px;align-items:stretch}
@@ -221,7 +217,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .sticker-field img:nth-child(5n){--r:-8deg;--x:2px;--y:5px}
 .sticker-field img:nth-child(3n){--z:2}
 @media(max-width:900px){.process-grid{grid-template-columns:1fr}.process-grid figure img{min-height:0;height:auto}.sticker-field{min-height:620px}}
-@media(max-width:600px){.sticker-field{min-height:430px;padding:15px 8px}.sticker-field img{width:155%;max-height:94px}.impact-mosaic{grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:82px;gap:8px;padding:12px 4px 30px}.impact-mosaic .mosaic-tall{grid-row:span 2}.impact-mosaic .mosaic-big{grid-row:span 2}.impact-mosaic figure{padding:4px}}
+@media(max-width:600px){.sticker-field{min-height:430px;padding:15px 8px}.sticker-field img{width:155%;max-height:94px}.impact-mosaic{columns:1;column-gap:0;padding:12px 14px 30px}.impact-mosaic figure{width:92%;margin-bottom:16px;padding:4px}}
 /* One continuous, swipeable stream of verified fan returns and fan art. */
 .after-carousel{display:flex;gap:15px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-color:#8a6c53 #eee7db;padding:0 0 24px;overscroll-behavior-inline:contain}
 .after-card{flex:0 0 min(760px,77vw);min-width:0;background:#f5f0e7;padding:18px;scroll-snap-align:start;display:flex;flex-direction:column}
@@ -261,10 +257,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .reel-intro{display:flex;justify-content:space-between;align-items:end;gap:20px;border-top:1px solid var(--forest);padding-top:16px;margin:100px 0 30px;color:var(--forest)}
 .reel-intro span{font-size:12px;font-weight:700;letter-spacing:.12em}.reel-intro p{font-size:clamp(22px,2.3vw,38px);letter-spacing:-.05em;margin:0}
 .farm-reel,.live-reels{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-color:#8a6c53 #eee7db;padding-bottom:20px;overscroll-behavior-inline:contain}
-.farm-reel figure{flex:0 0 min(600px,48vw);scroll-snap-align:start}.live-reels figure{flex:0 0 min(490px,35vw);scroll-snap-align:start}
+.farm-reel figure{flex:0 0 min(600px,48vw);scroll-snap-align:start}.live-reels figure{flex:0 0 min(637px,45.5vw);scroll-snap-align:start}
 .farm-reel video,.live-reels video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#382d25}
 .live-reels figcaption{display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;letter-spacing:.07em;color:var(--forest);margin:10px 0 0}
-@media(max-width:600px){.reel-intro{display:block;margin-top:70px}.reel-intro p{margin-top:15px}.farm-reel figure,.live-reels figure{flex-basis:88vw}}
+@media(max-width:600px){.reel-intro{display:block;margin-top:70px}.reel-intro p{margin-top:15px}.farm-reel figure{flex-basis:88vw}.live-reels figure{flex-basis:100%}}
 
 /* Keep the platform evidence visible alongside the reported numbers. */
 .impact-source{margin:22px 0 85px;background:#f5f0e7;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,.45fr);gap:20px;align-items:end}
@@ -319,12 +315,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 
 /* Preserve the full scene in the two landscape documentary images. */
 .process-grid figure img,.event-small img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain}
-
-/* Narrow screens need room for landscape social captures in the collage. */
-@media(max-width:600px){
-  .impact-mosaic .mosaic-square.mosaic-detail{grid-row:span 1}
-  .impact-mosaic .mosaic-detail img{object-fit:contain;object-position:center;background:#fff}
-}
 
 /* Varied paper sizes keep native topic captures legible in a loose collage. */
 .tag-cloud{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px 16px;align-items:center;padding:38px 44px}
