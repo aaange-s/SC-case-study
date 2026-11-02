@@ -369,3 +369,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .after-card img{height:auto;max-height:none;object-fit:contain;background:transparent}
 
 .after-card>a{display:block;line-height:0}.after-card>a img{display:block}.fan-voice{margin:24px 0 0;padding:30px 0;border-top:1px solid var(--forest);color:var(--forest)}.fan-voice span{font-size:12px;font-weight:700;letter-spacing:.13em}.fan-voice p{font-size:clamp(25px,3vw,44px);line-height:1.2;margin:18px 0}.fan-voice a{font-size:14px;color:inherit;text-underline-offset:3px}
+
+/* Keep the English name together, then start the closing thought on a new line on phones. */
+.mobile-break{display:none}
+@media(max-width:600px){.intro-lead .farm-party-phrase{white-space:nowrap}.intro-lead .mobile-break{display:block}}
