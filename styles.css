@@ -374,3 +374,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 @media(max-width:600px){.intro-lead .farm-party-phrase{white-space:nowrap}.intro-lead .mobile-break{display:block}}
 
 .fan-voice-shot{display:block;width:100%;max-width:1000px;height:auto;margin-top:24px;border:1px solid rgba(43,59,41,.16)}
+
+/* Responsive single-image replacement for the social post mosaic. */
+.impact-collage{margin:0;max-width:100%;overflow:hidden}
+.impact-collage img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
