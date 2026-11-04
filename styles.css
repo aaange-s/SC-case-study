@@ -378,3 +378,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 /* Responsive single-image replacement for the social post mosaic. */
 .impact-collage{margin:0;max-width:100%;overflow:hidden}
 .impact-collage img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain}
+
+/* Keep every carousel hint at the left edge on desktop and mobile. */
+.swipe-hint{justify-content:flex-start;align-items:flex-start;text-align:left}
+/* Keep the invitation triptych in one responsive frame. */
+.invitation-triptych{margin:0;width:100%;max-width:100%}
+.invitation-triptych img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain}
