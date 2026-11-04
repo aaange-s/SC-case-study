@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="STRANGER CLUB 为 Nana’s Farm Party 打造的创意、活动及直播案例。">
   <title>Nana’s Farm Party — STRANGER CLUB</title>
-  <link rel="stylesheet" href="styles.css?v=20261102-v14">
+  <link rel="stylesheet" href="styles.css?v=20261104-v15">
 </head>
 <body>
   <header class="site-header">
@@ -223,46 +223,21 @@
         }, { passive: true });
       });
 
-      let next = 0;
-      let active = 0;
-
-      function warmVideos() {
-        while (active < 2 && next < videos.length) {
-          const video = videos[next++];
-          if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA || !video.paused) continue;
-          active++;
-          let done = false;
-          const finish = () => {
-            if (done) return;
-            done = true;
-            clearTimeout(timeout);
-            active--;
-            warmVideos();
-          };
-          const timeout = setTimeout(finish, 15000);
-          video.addEventListener('loadeddata', finish, { once: true });
-          video.addEventListener('error', finish, { once: true });
-          video.preload = 'auto';
-          video.load();
-        }
-      }
-
-      const start = () => {
-        if ('requestIdleCallback' in window) requestIdleCallback(warmVideos, { timeout: 1200 });
-        else setTimeout(warmVideos, 400);
+      // Prepare upcoming clips before they enter view, without downloading every
+      // video on the first visit. Posters remain visible while media is pending.
+      const prepareNearbyVideos = () => {
+        if (!('IntersectionObserver' in window)) return;
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(({ target, isIntersecting }) => {
+            if (!isIntersecting) return;
+            observer.unobserve(target);
+            target.preload = 'metadata';
+          });
+        }, { rootMargin: '1500px 0px' });
+        videos.forEach(video => observer.observe(video));
       };
-      const startAfterHero = () => {
-        const heroImages = [...document.querySelectorAll('.hero-images img')];
-        Promise.all(heroImages.map(image => image.complete ? Promise.resolve() :
-          new Promise(resolve => {
-            image.addEventListener('load', resolve, { once: true });
-            image.addEventListener('error', resolve, { once: true });
-          })
-        )).then(start);
-      };
-      if (document.readyState === 'loading')
-        document.addEventListener('DOMContentLoaded', startAfterHero, { once: true });
-      else startAfterHero();
+      if (document.readyState === 'complete') prepareNearbyVideos();
+      else window.addEventListener('load', prepareNearbyVideos, { once: true });
     })();
   </script>
 </body>
