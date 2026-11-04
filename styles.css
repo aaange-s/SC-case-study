@@ -372,3 +372,5 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 /* Keep the English name together, then start the closing thought on a new line on phones. */
 .mobile-break{display:none}
 @media(max-width:600px){.intro-lead .farm-party-phrase{white-space:nowrap}.intro-lead .mobile-break{display:block}}
+
+.fan-voice-shot{display:block;width:100%;max-width:1000px;height:auto;margin-top:24px;border:1px solid rgba(43,59,41,.16)}
