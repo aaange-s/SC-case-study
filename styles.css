@@ -404,3 +404,40 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 .guest-carousel .guest-feature p{margin:18px 0 12px}
 .guest-carousel .guest-feature-portrait img{width:auto;max-width:100%;max-height:520px;margin-inline:auto}
 @media(max-width:600px){.guest-carousel .guest-feature{padding:8px}.guest-carousel .guest-feature-portrait img{max-height:430px}}
+
+/* A consistent editorial rhythm from the opening through the last chapter. */
+.intro{padding-top:100px;padding-bottom:96px}
+.chapter{padding-top:104px}
+.chapter-opening{margin-top:48px;margin-bottom:56px}
+.process-intro{margin-top:72px}
+.reel-intro{margin-top:72px}
+.clip-heading{margin-top:72px}
+.walkthrough{margin-top:104px}
+.nana-post-heading{margin-top:72px}
+.echo-intro{margin-top:52px;margin-bottom:48px}
+.echo-section{padding-bottom:16px}
+.impact-section{padding-top:80px}
+.tag-cloud{margin-bottom:48px}
+
+/* Keep every guest card close to its post, including the tall portrait capture. */
+.guest-carousel{align-items:stretch}
+.guest-carousel .guest-feature img{width:auto;max-width:100%;max-height:500px;margin-inline:auto}
+.guest-carousel .guest-feature-portrait img{max-height:500px}
+
+@media(max-width:900px){
+  .intro{padding-top:72px;padding-bottom:72px}
+  .chapter{padding-top:80px}
+  .walkthrough{margin-top:80px}
+}
+@media(max-width:600px){
+  .intro{padding-top:68px;padding-bottom:68px}
+  .chapter{padding-top:72px}
+  .chapter-opening{margin-top:42px;margin-bottom:48px}
+  .process-intro,.reel-intro,.clip-heading,.nana-post-heading{margin-top:56px}
+  .walkthrough{margin-top:72px}
+  .echo-intro{margin-top:44px;margin-bottom:40px}
+  .echo-section{padding-bottom:12px}
+  .impact-section{padding-top:60px}
+  .tag-cloud{margin-bottom:32px}
+  .guest-carousel .guest-feature img,.guest-carousel .guest-feature-portrait img{max-height:255px}
+}
