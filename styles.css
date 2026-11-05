@@ -315,6 +315,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans G
 /* Preserve the full scene in the two landscape documentary images. */
 .process-grid figure img,.event-small img{width:100%;height:auto;min-height:0;max-height:none;object-fit:contain}
 
+/* The sticker layout is one small image so the page makes one request instead of 25. */
+.process-grid .sticker-wall{margin:0;padding:0;background:#f7f3e9;align-self:start}
+.process-grid .sticker-wall img{display:block;width:100%;height:auto;min-height:0;object-fit:contain}
+
 /* Varied paper sizes keep native topic captures legible in a loose collage. */
 .tag-cloud{grid-template-columns:repeat(12,minmax(0,1fr));gap:12px 16px;align-items:center;padding:38px 44px}
 .tag-cloud img{box-sizing:border-box;background:#fff;padding:6px;box-shadow:0 10px 24px #493b2a20}

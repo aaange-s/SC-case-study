@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="STRANGER CLUB 为 Nana’s Farm Party 打造的创意、活动及直播案例。">
   <title>Nana’s Farm Party — STRANGER CLUB</title>
-  <link rel="stylesheet" href="styles.css?v=20261105-v20">
+  <link rel="stylesheet" href="styles.css?v=20261106-v22">
 </head>
 <body>
   <header class="site-header">
@@ -48,9 +48,7 @@
       <div class="process-intro"><p>不只停留在主视觉上的设计语言：标识、路牌和农场里会有的小道具，让每个接触点都属于同一个世界。</p></div>
       <div class="process-moodboard"><img decoding="async" loading="lazy" class="moodboard-image" src="assets/plan-farmgirl-moodboard-annotated.png" alt="方案阶段带文字注释的 farm girl core 视觉 moodboard"><img decoding="async" loading="lazy" class="portrait-sticker" src="assets/nana-portrait-sticker.png" alt="Nana’s Farm Party 人物贴纸"></div>
       <div class="process-grid">
-        <div id="stickers" class="sticker-field" aria-label="从方案中拆出的 Farm Party 贴纸图形，散落排布">
-          <img decoding="async" loading="lazy" src="assets/sticker-blue-26.png" alt="蓝色 26 贴纸"><img decoding="async" loading="lazy" src="assets/sticker-banana.png" alt="香蕉贴纸"><img decoding="async" loading="lazy" src="assets/sticker-carrot.png" alt="胡萝卜贴纸"><img decoding="async" loading="lazy" src="assets/sticker-medallion.png" alt="农场纪念章贴纸"><img decoding="async" loading="lazy" src="assets/sticker-maroon.png" alt="酒红色 Nana’s 贴纸"><img decoding="async" loading="lazy" src="assets/sticker-yellow-melon.png" alt="黄色水果贴纸"><img decoding="async" loading="lazy" src="assets/sticker-green-tomato.png" alt="绿色番茄贴纸"><img decoding="async" loading="lazy" src="assets/sticker-navy.png" alt="深蓝色文字贴纸"><img decoding="async" loading="lazy" src="assets/sticker-blue-rect.png" alt="蓝色长方形文字贴纸"><img decoding="async" loading="lazy" src="assets/sticker-lemon.png" alt="柠檬贴纸"><img decoding="async" loading="lazy" src="assets/sticker-cherries.png" alt="樱桃贴纸"><img decoding="async" loading="lazy" src="assets/sticker-green-ticket.png" alt="绿色票券贴纸"><img decoding="async" loading="lazy" src="assets/sticker-orange-ticket.png" alt="橙色票券贴纸"><img decoding="async" loading="lazy" src="assets/sticker-blue-script.png" alt="蓝色手写 Nana’s 贴纸"><img decoding="async" loading="lazy" src="assets/sticker-tomato.png" alt="红色番茄贴纸"><img decoding="async" loading="lazy" src="assets/sticker-lightblue-script.png" alt="浅蓝色 Nana’s 贴纸"><img decoding="async" loading="lazy" src="assets/sticker-yellow-script.png" alt="黄色手写 Nana’s 贴纸"><img decoding="async" loading="lazy" src="assets/sticker-fruit-blue.png" alt="蓝色水果贴纸"><img decoding="async" loading="lazy" src="assets/sticker-apple-blue.png" alt="蓝色苹果贴纸"><img decoding="async" loading="lazy" src="assets/sticker-bread.png" alt="农场面包贴纸"><img decoding="async" loading="lazy" src="assets/sticker-hen.png" alt="母鸡贴纸"><img decoding="async" loading="lazy" src="assets/sticker-egg.png" alt="鸡蛋贴纸"><img decoding="async" loading="lazy" src="assets/sticker-apples.png" alt="苹果贴纸"><img decoding="async" loading="lazy" src="assets/sticker-grapefruit.png" alt="西柚贴纸"><img decoding="async" loading="lazy" src="assets/sticker-date.png" alt="活动日期贴纸">
-        </div>
+        <figure id="stickers" class="sticker-wall"><img decoding="async" loading="lazy" src="assets/sticker-wall-20261106.jpg" width="755" height="819" alt="从方案中拆出的 25 款 Farm Party 贴纸图形，散落排布"></figure>
         <figure><img decoding="async" loading="lazy" src="assets/nana-26-curtain-web.jpg" alt="Farm Party 现场木门上的 Nana’s 26 定制门帘"></figure>
       </div>
       <div class="margin-note">想法 → 物料 → 体验 <span>↗</span></div>
@@ -208,21 +206,6 @@
         }, { passive: true });
       });
 
-      // Prepare upcoming clips before they enter view, without downloading every
-      // video on the first visit. Posters remain visible while media is pending.
-      const prepareNearbyVideos = () => {
-        if (!('IntersectionObserver' in window)) return;
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(({ target, isIntersecting }) => {
-            if (!isIntersecting) return;
-            observer.unobserve(target);
-            target.preload = 'metadata';
-          });
-        }, { rootMargin: '1500px 0px' });
-        videos.forEach(video => observer.observe(video));
-      };
-      if (document.readyState === 'complete') prepareNearbyVideos();
-      else window.addEventListener('load', prepareNearbyVideos, { once: true });
     })();
   </script>
 </body>
