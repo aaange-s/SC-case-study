@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="STRANGER CLUB 为 Nana’s Farm Party 打造的创意、活动及直播案例。">
   <title>Nana’s Farm Party — STRANGER CLUB</title>
-  <link rel="stylesheet" href="styles.css?v=20261106-v23">
+  <link rel="stylesheet" href="styles.css?v=20261106-v24">
 </head>
 <body>
   <header class="site-header">
@@ -196,15 +196,45 @@
         launch.type = 'button';
         launch.className = 'video-launch';
         launch.setAttribute('aria-label', `${video.getAttribute('aria-label')}，点击播放`);
-        launch.textContent = '▶';
+        launch.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 5.5v21L27 16z"/></svg>';
         shell.appendChild(launch);
         launch.addEventListener('click', () => {
-          video.src = source;
+          if (!video.src) video.src = source;
+          video.preload = 'auto';
           video.controls = true;
-          launch.remove();
-          video.play().catch(() => {});
+          launch.disabled = true;
+          video.play().catch(() => {
+            video.controls = false;
+            launch.disabled = false;
+          });
+        });
+        video.addEventListener('playing', () => {
+          shell.classList.add('is-playing');
+          launch.disabled = false;
+        });
+        video.addEventListener('pause', () => {
+          video.controls = false;
+          shell.classList.remove('is-playing');
+        });
+        video.addEventListener('ended', () => {
+          video.controls = false;
+          shell.classList.remove('is-playing');
         });
       });
+      // Warm only the videos approaching the viewport, including the visible
+      // items in each horizontal reel. The browser can read the metadata before
+      // the visitor presses play without fetching all 17 clips at page load.
+      if ('IntersectionObserver' in window) {
+        const nearby = new IntersectionObserver(entries => {
+          entries.forEach(({ target: video, isIntersecting }) => {
+            if (!isIntersecting) return;
+            nearby.unobserve(video);
+            video.preload = 'metadata';
+            video.src = video.dataset.src;
+          });
+        }, { rootMargin: '600px 0px' });
+        videos.forEach(video => nearby.observe(video));
+      }
       document.addEventListener('play', event => {
         if (!(event.target instanceof HTMLVideoElement)) return;
         videos.forEach(video => {
